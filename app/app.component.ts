@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      <button (click)="handleClick()">Change name</button>
+      <button (click)="handleClick(username.value)">Change name</button>
       <input
       type="text"
-      [(ngModel)]="name"
+      #username
       >
       <div>{{ name }}</div>
     </div>
@@ -20,7 +20,7 @@ export class AppComponent {
   constructor() {
     this.title = 'Ultimate Angular';
   }
-  handleClick() {
-    this.name = 'Motto';
+  handleClick(value: string) {
+    this.name = value;
   }
 }
