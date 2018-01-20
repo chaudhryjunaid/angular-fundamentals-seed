@@ -8,8 +8,7 @@ import { Component } from '@angular/core';
       <button (click)="handleClick()">Change name</button>
       <input
       type="text"
-      [ngModel]="name"
-      (ngModelChange)="handleChange($event)"
+      [(ngModel)]="name"
       >
       <div>{{ name }}</div>
     </div>
@@ -23,8 +22,5 @@ export class AppComponent {
   }
   handleClick() {
     this.name = 'Motto';
-  }
-  handleChange(value: string) {
-    this.name = value;
   }
 }
