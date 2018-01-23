@@ -5,24 +5,8 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
   template: `
     <div class="app">
-      <input
-      type="text"
-      [value]="name"
-      (input)="handleChange($event.target.value)"
-      >
-      <div *ngIf="name.length > 2">
-        Searching for... {{ name }}
-      </div>
+      <passenger-dashboard></passenger-dashboard>
     </div>
   `
 })
-export class AppComponent {
-  title: string;
-  name: string = '';
-  constructor() {
-    this.title = 'Ultimate Angular';
-  }
-  handleChange(value: string) {
-    this.name = value;
-  }
-}
+export class AppComponent {}
