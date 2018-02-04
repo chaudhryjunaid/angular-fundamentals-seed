@@ -8,6 +8,7 @@ import { PassengerViewerComponent} from "./containers/passenger-viewer/passenger
 import { PassengerCountComponent } from './components/passenger-count/passenger-count.component';
 import { PassengerDetailComponent } from './components/passenger-detail/passenger-detail.component';
 import { PassengerDashboardService } from './passenger-dashboard.service';
+import { PassengerFormComponent } from "./components/passenger-form/passenger-form.component";
 
 
 
@@ -16,7 +17,8 @@ import { PassengerDashboardService } from './passenger-dashboard.service';
     PassengerDashboardComponent,
     PassengerViewerComponent,
     PassengerCountComponent,
-    PassengerDetailComponent
+    PassengerDetailComponent,
+    PassengerFormComponent
   ],
   imports: [
     CommonModule,
