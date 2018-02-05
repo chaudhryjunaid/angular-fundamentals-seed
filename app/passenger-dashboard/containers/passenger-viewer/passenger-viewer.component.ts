@@ -8,7 +8,7 @@ import { Passenger } from '../../models/passenger.interface';
   selector: 'passenger-viewer',
   styleUrls: ['passenger-viewer.component.scss'],
   template: `
-    <passenger-form [detail]="passenger">
+    <passenger-form [detail]="passenger" (update)="updatePassenger($event)">
     </passenger-form>
   `
 })
@@ -19,5 +19,10 @@ export class PassengerViewerComponent {
     this.passengerService
       .getPassenger(1)
       .subscribe((data) => this.passenger = data);
+  }
+
+  updatePassenger(passenger: Passenger) {
+    this.passengerService.updatePassenger(passenger)
+      .subscribe((data: Passenger) => this.passenger = data);
   }
 }
