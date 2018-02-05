@@ -10,7 +10,7 @@ import {HomeComponent} from "./home.component";
 import {NotFoundComponent} from "./not-found.component";
 
 let routes: Routes = [
-  {path: '', component: HomeComponent, pathMatch: 'full'},
+  {path: '', redirectTo: '/passengers', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];
 
