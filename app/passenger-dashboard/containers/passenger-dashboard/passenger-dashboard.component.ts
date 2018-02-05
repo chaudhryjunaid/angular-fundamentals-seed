@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from "@angular/router";
 import { PassengerDashboardService } from '../../passenger-dashboard.service';
 
 import { Passenger } from '../../models/passenger.interface';
@@ -22,13 +22,17 @@ import { Passenger } from '../../models/passenger.interface';
         [detail]="passenger"
         (edit)="handleEdit($event)"
         (remove)="handleRemove($event)"
+        (view)="handleView($event)"
       ></passenger-detail>
     </div>
   `
 })
 export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
-  constructor(private passengerService: PassengerDashboardService) {}
+  constructor(
+    private router: Router,
+    private passengerService: PassengerDashboardService
+  ) {}
   ngOnInit(){
     this.passengerService.getPassengers()
       .subscribe(data => this.passengers = data);
@@ -51,5 +55,8 @@ export class PassengerDashboardComponent implements OnInit {
           return event.id !== passenger.id;
         });
       });
+  }
+  handleView(event: Passenger) {
+    this.router.navigate(['/passengers', event.id]);
   }
 }

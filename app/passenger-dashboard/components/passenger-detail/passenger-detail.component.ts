@@ -31,6 +31,10 @@ import { Passenger } from '../../models/passenger.interface';
         (click)="onRemove()">
         Remove
       </button>
+      <button
+        (click)="onView()">
+        View
+      </button>
     </div>
   `
 })
@@ -38,31 +42,46 @@ export class PassengerDetailComponent implements OnInit, OnChanges {
   @Input()
   detail: Passenger;
   editing: boolean = false;
+
   @Output()
-  edit: EventEmitter<any> = new EventEmitter();
+  edit: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+
   @Output()
-  remove: EventEmitter<any> = new EventEmitter()
+  remove: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+
+  @Output()
+  view: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+
   constructor() {}
+
   ngOnInit() {
     console.log('ngOnInit');
   }
+
   ngOnChanges(changes) {
     console.log(changes);
     if (changes.detail) {
       this.detail = Object.assign({}, changes.detail.currentValue);
     }
   }
+
   onNameChange(value: string) {
     console.log('value: ', value);
     this.detail.fullname = value;
   }
+
   toggleEdit() {
     if(this.editing) {
       this.edit.emit(this.detail);
     }
     this.editing = !this.editing;
   }
+
   onRemove() {
     this.remove.emit(this.detail);
+  }
+
+  onView() {
+    this.view.emit(this.detail);
   }
 }

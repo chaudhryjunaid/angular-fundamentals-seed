@@ -1,7 +1,7 @@
 {
   "passengers": [
     {
-      "fullname": "Torvalds",
+      "fullname": "Todd",
       "id": 1,
       "checkedIn": true,
       "baggage": "none",
@@ -15,11 +15,11 @@
       "baggage": ""
     },
     {
+      "fullname": "Stevie",
       "id": 3,
-      "fullname": "Todd",
       "checkedIn": true,
-      "checkInDate": 1488412800000,
-      "baggage": ""
+      "baggage": "",
+      "checkInDate": 1488412800000
     },
     {
       "id": 4,
